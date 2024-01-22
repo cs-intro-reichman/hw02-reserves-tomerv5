@@ -4,6 +4,12 @@
  */
 public class Reverse {
 	public static void main (String[] args){
-		//// Put your code here
+		String st = args[0];
+		int index = st.length()-1;
+		while (index >= 0) {
+			System.out.print(st.charAt(index));
+			index--;
+		}
+		System.out.println("\nThe middle character is " + st.charAt((st.length()-1)/2));
 	}
 }
