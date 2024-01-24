@@ -5,18 +5,16 @@
  */
 public class OneOfEach {
 	public static void main (String[] args) {
-		double randomGender = Math.random();
-		char gender;
-		char previousChild = '0';
+		char currentChild;
+		char previousChild = '-';
 		int numOfchildren = 0;
-		while ((gender = (randomGender < 0.5 ? 'g' : 'b')) == previousChild || numOfchildren == 0) { //Assigning new value to gender and checking equlity to previousChild.
-			System.out.print(gender + " ");
-			previousChild = gender;
+		while ((currentChild = (Math.random() < 0.5 ? 'g' : 'b')) == previousChild || numOfchildren == 0) { //Assigning new value to currentChild and checking equlity to previousChild.
+			System.out.print(currentChild + " ");
+			previousChild = currentChild;
 			numOfchildren++;
-			randomGender = Math.random();
 		}
 		numOfchildren++;
-		System.out.print(gender + "\nYou made it... and you now have " + numOfchildren + " children.");
+		System.out.print(currentChild + "\nYou made it... and you now have " + numOfchildren + " children.");
 		
 	}
 }
