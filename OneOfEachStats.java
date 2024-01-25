@@ -1,19 +1,17 @@
+import java.util.Random;
+
 /**
  *  Computes some statistics about families in which the parents decide 
  *  to have children until they have at least one child of each gender.
  *  The program expects to get one command-line argument: an int value
  * 	that determines how many families to simulate.
  */
-
- /* compute the average number of children that couples who follow
-this strategy end up having.
-In addition, compute how many couples had 2 children, 3
-children, and 4 or more children. Finally, compute the most common number (also
-known in statistics as mode) of children in a family (if there is a tie, print only the first
-most common number of children). */
 public class OneOfEachStats {
 	public static void main (String[] args) {
 		int T = Integer.parseInt(args[0]);
+		int seed = Integer.parseInt(args[1]);
+		Random generator = new Random(seed);
+		double rnd;
 		char currentChild;
 		char previousChild = '-';
 		int numOfchildren = 0;
@@ -21,7 +19,7 @@ public class OneOfEachStats {
 		int twoChildren = 0, threeChildren = 0, fourChildren = 0;
 
 		for (int i = 0;i < T; i++){
-			while ((currentChild = (Math.random() < 0.5 ? 'g' : 'b')) == previousChild || numOfchildren == 0) { //Assigning new value to currentChild and checking equlity to previousChild.
+			while ((currentChild = ((rnd = generator.nextDouble())< 0.5 ? 'g' : 'b')) == previousChild || numOfchildren == 0) { //Assigning new value to currentChild and checking equlity to previousChild.
 				//System.out.print(currentChild + " ");  system check
 				previousChild = currentChild;
 				numOfchildren++;
